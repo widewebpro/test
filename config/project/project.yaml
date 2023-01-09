@@ -1,0 +1,22 @@
+dateModified: 1673258702
+email:
+  fromEmail: admin@gmail.com
+  fromName: test
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    1df0915e-ef6f-4d98-8a38-1cae70be9a9d: Common # Common
+    04d63c70-193e-4709-9265-8684e93b46b8: test # test
+    223fcb1f-bd7f-4c46-8ce6-d16a1e87a937: test # test
+system:
+  edition: pro
+  live: true
+  name: test
+  schemaVersion: 4.0.0.9
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

@@ -1,0 +1,178 @@
+{#
+
+  {% include "_partials/image" with {
+    image: image,
+    classes: {},
+    sizes: {
+      xxs: "330"
+    }
+  } %}
+
+  |---------------------|
+  |------- USAGE -------|
+  |---------------------|
+
+  {% include "_partials/image" with {
+    image: image, (Optional, will fallback to placeholder image)
+    jpg: false, (Optional, adds jpg fallback | Default: true)
+    placeholder: false, (Optional, useplaceholder image | Default: false)
+    classes: { (Optional, add optional classes to elements)
+      picture: "",
+      img: ""
+    },
+    sizes: { (Required, transforms images for different screen sizes)
+      xxs: "300x400", // Required / Default
+      xs: "500", // Optional
+      sm: "800x600", // Optional
+      md: "800", // Optional
+      lg: "900x800", // Optional
+      xl: "1200x600", // Optional
+      xxl: "1400x800" // Optional
+    }
+  } %}
+
+  To get a picture with specified dimensions:
+  use: "[width]x[height]" eg: "100x200"
+
+  To get a square image:
+  use: "[size]" eg: "100"
+
+  To set width, without height:
+  use: "[width]x" eg: "100x"
+
+  To set height, without width:
+  use: "x[height]" eg: "x100"
+
+  NOTE: media="" param & sizes are tied to tailwind/config/screens.js
+  LINK: tailwind/configs/screens.js
+#}
+
+{% set sizes = sizes ?? null %}
+{% set image = image ?? null %}
+
+{# Set Default Image Transform Options #}
+{% set alt = alt ?? image.title ?? null %}
+{% set html = html ?? null %}
+{% set mode = mode ?? "crop" %}
+{% set format = format ?? "webp" %}
+{% set quality = quality ?? 90 %}
+{% set eager = eager ?? false %}
+{% set jpg = jpg ?? true %}
+{% set placeholder = placeholder ?? false %}
+
+{% if image or placeholder %}
+  {# Setup classes #}
+  {% set classes =  {
+    picture: classes.picture ?? '',
+    img: classes.img ?? '',
+    figure: classes.figure ?? '',
+    figcaption: classes.figcaption ?? '',
+  } %}
+
+  {# add defaults to object #}
+  {% set default = {
+    mode: mode,
+    format: format,
+    quality: quality,
+  } %}
+
+  {# add data-attributes #}
+  {% set attributes = {
+    picture: attributes.picture ?? '',
+    img: attribbutes.img ?? '',
+  } %}
+
+  {% if image.mimeType is defined %}
+    {% set position = image.mimeType != 'image/svg' ? {
+      x: image.focalPoint.x * 100,
+      y: image.focalPoint.y * 100
+    } : null %}
+  {% endif %}
+
+  {% set url = image.url is defined ? image.url : (image ?? null) %}
+
+  {% set sourceParams = {
+    image: image,
+    sizes: sizes,
+    default: default,
+    format: format,
+    jpg: jpg,
+    placeholder: placeholder
+  } %}
+
+  {% set defaultDataSrc = sizes ? "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" : url %}
+  {% set cssPosition = position is defined ? position.x ~ '% ' ~ position.y ~ '%' : null %}
+
+  <picture class="{{classes.picture}}"{% if attributes.picture|length %} data-{{ attributes.picture.key }}="{{ attributes.picture.value }}"{% endif %}>
+    {{ _self.source(sourceParams, 'xxl', '(min-width: 100em)') }}
+    {{ _self.source(sourceParams, 'xl', '(min-width: 90em)') }}
+    {{ _self.source(sourceParams, 'lg', '(min-width: 68.75em)') }}
+    {{ _self.source(sourceParams, 'md', '(min-width: 48em)') }}
+    {{ _self.source(sourceParams, 'sm', (sizes.xs is defined ? '(min-width: 40em)' : null)) }}
+    {{ _self.source(sourceParams, 'xs', (sizes.xxs is defined ? '(min-width: 31.25em)' : null)) }}
+    {{ _self.source(sourceParams, 'xxs', null) }}
+
+    <img
+      class="{{classes.img}}"
+      style="{% if cssPosition %}object-position:{{cssPosition}};{% endif %}opacity:0;transition:opacity 0.5s ease;"
+      {{ sourceParams.image.width ? 'width=' ~ sourceParams.image.width}}
+      {{ sourceParams.image.height ? 'height=' ~ sourceParams.image.height}}
+      loading="{{eager ? 'eager' : 'lazy'}}"
+      src="{{defaultDataSrc}}"
+      alt="{{alt}}">
+
+    {# Add Extra HTML if needed #}
+    {{html|raw}}
+  </picture>
+
+  {%- macro source(params, size, media) -%}
+    {% set size = params.sizes[size] ?? null %}
+
+    {% if size %}
+
+      {% if 'x' in size %}
+        {% set size = size|split('x') %}
+        {% set w = size[0] %}
+        {% set h = size[1] %}
+      {% elseif size.width is defined and size.height is defined %}
+        {% set w = size.width %}
+        {% set h = size.height %}
+      {% else %}
+        {% set w = size %}
+        {% set h = size %}
+      {% endif %}
+
+      {% set standard = { width: w, height: h } %}
+      {% set retina = { width: w ? w * 2, height: h ? h * 2 } %}
+
+      {% if craft.app.config.general.devMode %}<!-- {{media ?? "default"}} (1x: {{standard.width}}x{{standard.height}}) (2x: {{retina.width}}x{{retina.height}}) -->{% endif %}
+
+      {% if params.placeholder %}
+        <source
+          srcset="https://picsum.photos/{{ standard.width }}/{{ standard.height }} 1x, https://picsum.photos/{{ retina.width }}/{{ retina.height }} 2x" >
+      {% elseif params.image %}
+        {% set image = size ? {
+          "1x": params.image.getUrl(params.default|merge(standard)),
+          "2x": params.image.getUrl(params.default|merge(retina))
+        } : null %}
+
+        <source
+          srcset="{{image["1x"]}} 1x, {{image["2x"]}} 2x"
+          {% if params.format == 'webp' %}type="image/webp"{% endif %}
+          {% if media|length %}media="{{media}}"{% endif %}>
+
+        {% if params.format == 'webp' and params.jpg %}
+          {% set fallback = size ? {
+            "1x": params.image.getUrl(params.default|merge(standard)|merge({format: null})),
+            "2x": params.image.getUrl(params.default|merge(retina)|merge({format: null}))
+          } : null %}
+
+          <source
+            srcset="{{fallback["1x"]}} 1x, {{fallback["2x"]}} 2x"
+            {% if media|length %}media="{{media}}"{% endif %}
+            type="{{params.image.mimeType}}">
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {%- endmacro -%}
+{% endif %}

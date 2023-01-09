@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="is-loading" lang="{{currentSite.language}}">
+  {% include "_layouts/includes/main-head" %}
+  <body class="">
+
+    <a class="srd" href="#main">Skip to Page Content</a>
+    {% include "_includes/globals/site-header" %}
+
+    <div class="site-container">
+      <main id="main" class="site-content min-h-screen" role="main">
+        {% block content %}{% endblock %}
+      </main>
+      {% include "_includes/globals/footer" %}
+    </div>
+
+    {% include "_layouts/includes/body-end" %}
+    {% block inlineJS %}{% endblock %}
+  </body>
+</html>

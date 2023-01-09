@@ -1,0 +1,24 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="referrer" content="origin-when-cross-origin" />
+
+    {%- include "_layouts/includes/favicons.twig" -%}
+    {%- include "_layouts/includes/fonts.twig" -%}
+
+    <script>
+      function loaded(func) {if(document.readyState !== 'loading') {func()}else{document.addEventListener('DOMContentLoaded', function(){func()});}}
+      function interactive(func) {if(document.readyState !== 'loading') {func()}else{document.addEventListener('readystatechange', function(event) {if(event.target.readyState === 'interactive'){func()}});}}
+
+      loaded(function() {document.body.style.opacity = '1';if(!window.loadingImgs){window.loadingImgs = imgs = document.querySelectorAll('img:not(.loaded)[loading]');}for (let i = 0; i < window.loadingImgs.length; i++) {const img = window.loadingImgs[i];if(img['complete'] || img['readyState'] == "complete") {showImg(window.loadingImgs[i], 'loaded')}}});
+
+      interactive(() => {if(!window.loadingImgs){window.loadingImgs = imgs = document.querySelectorAll('img:not(.loaded)[loading]');};for (let i = 0; i < window.loadingImgs.length; i++) {window.loadingImgs[i].addEventListener('load', function() {showImg(window.loadingImgs[i], 'interactive')})};})
+
+      function showImg(img, type) {if(img.classList.contains('loaded')) return;img.style.opacity='0';setTimeout(function(){img.style.transition='opacity 1s ease';img.style.opacity='1';img.classList.add('loaded');setTimeout(function() {console.log('remove style');img.style.opacity = null;}, 1000);},10);}
+    </script>
+
+    <link rel="stylesheet" href="/_compiled/app.css">
+    <style>.is-loading [class*='transition-'] {transition: none !important;}</style>
+    <noscript><style>html {opacity: 1;}</style></noscript>
+    {% block headCSS %}{% endblock %}
+</head>

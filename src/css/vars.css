@@ -1,0 +1,9 @@
+:root {
+  --contain: 10px;
+}
+
+@screen lg {
+  :root {
+    --contain: 16px;
+  }
+}

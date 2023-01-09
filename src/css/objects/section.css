@@ -1,0 +1,14 @@
+/*
+
+Used if <section>'s have similar padding/margin between each.
+
+.o-section {
+  @apply bg-white;
+  @apply px-24 py-48;
+
+  @screen md {
+    @apply p-40 p-12;
+  }
+}
+
+*/

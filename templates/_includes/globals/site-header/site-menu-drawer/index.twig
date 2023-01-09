@@ -1,0 +1,33 @@
+<menu-drawer-action
+  data-js-module="customElement/menu-drawer-action"
+  class="js-custom-el cursor-pointer uppercase text-14"
+  aria-label="open navigation"
+  aria-controls="menu-drawer-content"
+  aria-expanded="false"
+  tabindex="0"
+  role="button">
+  Menu
+</menu-drawer-action>
+
+<menu-drawer
+  data-js-module="customElement/menu-drawer"
+  class="js-custom-el fixed left-0 top-0 h-screen w-full max-w-[500px] p-24 bg-black text-white transform -translate-x-full invisible"
+  tabindex="0"
+  aria-hidden="true">
+
+ <button id="close-menu-drawer" class="close absolute right-0 top-0 p-12 text-30 leading-none" aria-label="close navigation">&times;</button>
+
+ <div id="menu-drawer-content" class="">
+    <nav>
+      <ul>
+        {% for item in 0..6 %}
+          {{ _self.link(item) }}
+        {% endfor %}
+      </ul>
+    </nav>
+ </div>
+</menu-drawer>
+
+{% macro link(link) %}
+  <li><a href="#">Link {{link}}</a></li>
+{% endmacro %}

@@ -1,0 +1,27 @@
+[class*='ratio-'] {
+  @apply relative block;
+}
+
+.ratio-child {
+  @apply absolute left-0 top-0 w-full h-full;
+}
+
+.ratio-none {
+  padding-bottom: 0;
+}
+
+.ratio-square {
+  padding-bottom: 100%;
+}
+
+.ratio-16\/9 {
+  padding-bottom: 56.25%;
+}
+
+.ratio-4\/3 {
+  padding-bottom: 75%;
+}
+
+.ratio-21\/9 {
+  padding-bottom: 42.86%;
+}

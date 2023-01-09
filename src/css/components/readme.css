@@ -1,0 +1,56 @@
+/*
+
+[component-name]
+
+  Group tailwind @apply's on groups.
+
+  - Position
+  - Display
+  - Text
+*/
+
+/* Exmaple */
+
+/* .component-name {
+  &__child {
+    @apply absolute z-2 left-0 right-0;
+    @apply inline-block bg-white;
+    @apply text-white uppercase text-12;
+
+    @screen sm {
+      @apply pg-white;
+    }
+
+    @screen md {
+      @apply bg-gray;
+    }
+
+    @screen lg {
+      @apply p-20;
+    }
+
+    @screen xl {
+      @apply m-10;
+    }
+  }
+
+  .is-active &__child {
+    @apply bg-white;
+  }
+
+  &__child-inner {
+    @apply relative z-10;
+  }
+
+  &__button {
+    @apply mt-20;
+
+    @screen md {
+      @apply mt-40;
+    }
+  }
+
+  &.is-active &__button {
+    @apply blue;
+  }
+} */

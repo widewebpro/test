@@ -1,0 +1,9 @@
+{% if currentUser %}
+  <div class="py-100 text-center">
+    <div class="text-style-25">Cannot find template ({{pageTemplate}}).</div><br>
+  </div>
+{% else %}
+  <div class="py-100 text-center text-style-40">
+    {{entry.title}}
+  </div>
+{% endif %}

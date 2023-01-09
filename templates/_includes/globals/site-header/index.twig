@@ -1,0 +1,21 @@
+<site-header
+  data-js-module="customElement/site-header"
+  data-js-attach="scrollUp"
+  role="banner"
+  class="js-custom-el inline-block w-full align-bottom">
+  <div class="js-scroll-container border-b bg-white">
+    <div class="o-container flex items-center w-full p-12">
+      <div class="flex-1">
+        {% include "#{_self}/site-menu-drawer" %}
+      </div>
+
+      <div class="">
+        <a href="/" class="inline-block"><span class="srd">Homepage</span>{% include "_partials/logos/main" %}</a>
+      </div>
+
+      <div class="flex-1 flex items-center justify-end">
+        <div class="">Right Items</div>
+      </div>
+    </div>
+  </div>
+</site-header>

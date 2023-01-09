@@ -1,0 +1,43 @@
+{#
+    https://www.zachleat.com/web/css-tricks-web-fonts/
+
+    Run "bash generateFonts" in /web/assets/fonts to generate fonts
+#}
+
+{#
+
+{% set fonts = [{
+    fontFamily: 'Helvetica-Display',
+    url: '/assets/fonts/HelveticaNowDisplay',
+}, {
+    fontFamily: 'Helvetica-Display-Medium',
+    url: '/assets/fonts/HelveticaNowDisplayMedium',
+}, {
+    fontFamily: 'Helvetica-Text',
+    url: '/assets/fonts/HelveticaNowText',
+}, {
+    fontFamily: 'Helvetica-Text-Medium',
+    url: '/assets/fonts/HelveticaNowTextMedium',
+}, {
+    fontFamily: 'Helvetica-Text-Bold',
+    url: '/assets/fonts/HelveticaNowTextBold',
+}] %}
+
+{% for font in fonts %}
+    <link rel="preload" href="{{font.url}}-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+{% endfor %}
+
+<style>
+  {% for font in fonts %}
+    @font-face{
+      font-family:{{font.fontFamily}};
+      src: url({{font.url}}-kern-latin.woff2) format("woff2"),
+            url({{font.url}}-kern-latin.woff) format("woff");
+      font-display: swap;
+    }
+  {% endfor %}
+</style>
+
+<script>if("fonts" in document) { {% for font in fonts %}var {{font.fontFamily|camel}} = new FontFace("{{font.fontFamily}}","url({{font.url}}-hint-all.woff2) format('woff2'), url({{font.url}}-hint-all.woff) format('woff')");{% endfor %}Promise.all([{% for font in fonts %}{{font.fontFamily|camel}}{% if not loop.last %},{% endif %}{% endfor %}]).then(function(fonts){fonts.forEach(function(font) {document.fonts.add(font);});});}</script>
+
+#}

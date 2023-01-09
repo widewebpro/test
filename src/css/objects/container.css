@@ -1,0 +1,15 @@
+/*
+
+  Used to contain the content
+
+*/
+
+.o-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  @apply px-16;
+
+  &.is-fluid {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,40 @@
+{% set ltr = ltr ?? null %}
+
+<section class="py-48 md:py-68">
+  <div class="sm:grid grid-cols-2">
+    <div class="{% if ltr != true %}sm:pr-40{% else %}sm:pl-40{% endif %}">
+      {% set img = craft.assets.id(6).one() %}
+      {# {{ img.getUrl() }} #}
+      {% include "_partials/image" with {
+        image: img,
+        classes: {
+          img: "w-full",
+          picture: "inline-block w-full"
+        },
+        sizes: {
+          xs: "500x300",
+          sm: "500x600",
+          md: "500x400",
+          lg: "700",
+          xl: "900x600"
+        }
+      } %}
+    </div>
+
+    <div class="{% if ltr %}ol-start-1 row-start-1{% endif %}">
+      <div class="uppercase font-Pitch-Bold mb-12">
+        Label
+      </div>
+
+      <h2 class="text-40 uppercase">
+        Lorem ipsum dolor!
+      </h2>
+
+      <div class="{% if ltr %} lg:max-w-[570px] xl:max-w-none {% endif %}">
+        <div class="mt-24">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatum. Libero distinctio id qui repellendus nostrum esse pariatur fugiat mollitia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

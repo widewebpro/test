@@ -1,0 +1,18 @@
+/* purge ignore */
+
+/* Hide focus styles if they're not needed, for example,
+when an element receives focus via the mouse. */
+:focus:not(:focus-visible),
+.srd:focus {
+  outline: 0;
+}
+
+/* Show focus styles on keyboard focus. */
+:focus-visible:not(input):not(.srd):not(div) {
+  outline: 2px solid grey;
+}
+
+div:focus-visible {
+  outline: none;
+  border: 2px solid red;
+}
