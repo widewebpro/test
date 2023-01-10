@@ -5,9 +5,9 @@
 */
 
 .o-container {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
-  @apply px-16;
+  @apply px-24 md:px-45;
 
   &.is-fluid {
     max-width: 100%;

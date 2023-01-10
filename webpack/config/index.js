@@ -9,7 +9,7 @@ const isShopify = process.env.SHOPIFY;
 
 const base = {
   name: process.env.SITE_NAME,
-  copyright: 'PaperTiger - https://www.papertiger.com',
+  copyright: 'Wideweb',
   isDev: __filename.includes('dev.js'),
   env:  process.env.ENVIRONMENT,
   generateLegacy: () => process.env.GENERATE_LEGACY || false,

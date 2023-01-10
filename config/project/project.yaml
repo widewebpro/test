@@ -1,4 +1,4 @@
-dateModified: 1673258702
+dateModified: 1673261522
 email:
   fromEmail: admin@gmail.com
   fromName: test
@@ -7,7 +7,9 @@ meta:
   __names__:
     1df0915e-ef6f-4d98-8a38-1cae70be9a9d: Common # Common
     04d63c70-193e-4709-9265-8684e93b46b8: test # test
+    40b8f94e-0462-4923-b274-f8dc54cc52b9: Homepage # Homepage
     223fcb1f-bd7f-4c46-8ce6-d16a1e87a937: test # test
+    ffb685f8-312e-4daf-b5c6-155813e70b51: Homepage # Homepage
 system:
   edition: pro
   live: true

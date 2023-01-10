@@ -1,0 +1,35 @@
+.text-style-h1 {
+  @apply text-28 md:text-44 leading-[2rem] md:leading-[3rem] font-KumbhBold;
+}
+
+.text-style-p1 {
+  @apply text-15 leading-[1.563rem] md:text-16 md:leading-[1.625rem] font-KumbhRegular;
+}
+
+.text-style-p2 {
+  @apply text-15 leading-[1.625rem] font-KumbhRegular;
+}
+
+.text-style-p3 {
+  @apply text-12 md:text-13 leading-[0.938rem] md:leading-[1rem] tracking-[2px] font-KumbhBold;
+}
+
+.text-style-p4 {
+  @apply text-18 leading-[1.625rem] font-KumbhBold;
+}
+
+.text-style-l1 {
+  @apply text-28 leading-[2.188rem] font-KumbhBold;
+}
+
+.text-style-l2 {
+  @apply text-16 leading-[1.25rem] font-KumbhBold;
+}
+
+.text-style-l3 {
+  @apply text-16 leading-[1.625rem] font-KumbhBold;
+}
+
+.text-style-l4 {
+  @apply text-16 leading-[1.625rem] font-KumbhRegular;
+}

@@ -6,28 +6,33 @@
   aria-expanded="false"
   tabindex="0"
   role="button">
-  Menu
+  <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H16V3H0V0ZM0 6H16V9H0V6ZM16 12H0V15H16V12Z" fill="#69707D"/>
+  </svg>
 </menu-drawer-action>
 
 <menu-drawer
   data-js-module="customElement/menu-drawer"
-  class="js-custom-el fixed left-0 top-0 h-screen w-full max-w-[500px] p-24 bg-black text-white transform -translate-x-full invisible"
+  class="js-custom-el fixed left-0 top-0 h-screen w-full max-w-[66%] p-24 bg-white text-dark-0 transform -translate-x-full invisible"
   tabindex="0"
   aria-hidden="true">
 
- <button id="close-menu-drawer" class="close absolute right-0 top-0 p-12 text-30 leading-none" aria-label="close navigation">&times;</button>
+ <button id="close-menu-drawer" class="close absolute left-25 top-25  text-30 leading-none" aria-label="close navigation">
+   <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99998 5.37868L2.40379 0.782486L0.282471 2.90381L4.87866 7.5L0.282471 12.0962L2.40379 14.2175L6.99999 9.62132L11.5962 14.2175L13.7175 12.0962L9.12131 7.5L13.7175 2.90381L11.5962 0.782486L6.99998 5.37868Z" fill="#69707D"/>
+   </svg>
+ </button>
 
- <div id="menu-drawer-content" class="">
+ <div id="menu-drawer-content" class="mt-90">
     <nav>
       <ul>
-        {% for item in 0..6 %}
-          {{ _self.link(item) }}
-        {% endfor %}
+        <li class="mb-20 last:mb-0"><a class="text-style-p4" href="#">Collections</a></li>
+        <li class="mb-20 last:mb-0"><a class="text-style-p4" href="#">Men</a></li>
+        <li class="mb-20 last:mb-0"><a class="text-style-p4" href="#">Women</a></li>
+        <li class="mb-20 last:mb-0"><a class="text-style-p4" href="#">About</a></li>
+        <li class="mb-20 last:mb-0"><a class="text-style-p4" href="#">Contact</a></li>
       </ul>
     </nav>
  </div>
 </menu-drawer>
 
-{% macro link(link) %}
-  <li><a href="#">Link {{link}}</a></li>
-{% endmacro %}

@@ -3,18 +3,78 @@
   data-js-attach="scrollUp"
   role="banner"
   class="js-custom-el inline-block w-full align-bottom">
-  <div class="js-scroll-container border-b bg-white">
-    <div class="o-container flex items-center w-full p-12">
-      <div class="flex-1">
-        {% include "#{_self}/site-menu-drawer" %}
-      </div>
+  <div class="js-scroll-container bg-white relative z-5">
+    <div class="o-container">
+      <div class=" flex items-center w-full pt-19 pb-25 md:pt-28 md:pb-34 border-b border-gray-1">
+        <div class="flex items-center">
+          <div class="flex-1 mr-16 md:hidden">
+            {% include "#{_self}/site-menu-drawer" %}
+          </div>
+          <a href="/" class="inline-block mr-56"><span class="srd font-KumbhRegular">Homepage</span>{% include "_partials/logos/main" %}</a>
+          <nav class="hidden md:block">
+            <ul class="text-gray-0 flex items-center">
+              <li class="mr-33 last:mr-0 hover:text-dark-0 relative group">
+                <a class="text-style-p2" href="#">Collections</a>
+                <div class="w-0 absolute group-hover:w-full transition-all duration-300 h-4 bg-orange-0 left-0 right-0 bottom-[-47px]"></div>
+              </li>
+              <li class="mr-33 last:mr-0 hover:text-dark-0 relative group">
+                <a class="text-style-p2" href="#">Men</a>
+                <div class="w-0 absolute group-hover:w-full transition-all duration-300 h-4 bg-orange-0 left-0 right-0 bottom-[-47px]"></div>
+              </li>
+              <li class="mr-33 last:mr-0 hover:text-dark-0 relative group">
+                <a class="text-style-p2" href="#">Women</a>
+                <div class="w-0 absolute group-hover:w-full transition-all duration-300 h-4 bg-orange-0 left-0 right-0 bottom-[-47px]"></div>
+              </li>
+              <li class="mr-33 last:mr-0 hover:text-dark-0 relative group">
+                <a class="text-style-p2" href="#">About</a>
+                <div class="w-0 absolute group-hover:w-full transition-all duration-300 h-4 bg-orange-0 left-0 right-0 bottom-[-47px]"></div>
+              </li>
+              <li class="mr-33 last:mr-0 hover:text-dark-0 relative group">
+                <a class="text-style-p2" href="#">Contact</a>
+                <div class="w-0 absolute group-hover:w-full transition-all duration-300 h-4 bg-orange-0 left-0 right-0 bottom-[-47px]"></div>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-      <div class="">
-        <a href="/" class="inline-block"><span class="srd">Homepage</span>{% include "_partials/logos/main" %}</a>
-      </div>
+        <div class="flex-1 flex items-center justify-end">
+          <div class="mr-46 last:mr-0 text-gray-0 hover:text-dark-0 relative">
+            <open-cart class="js-custom-el"
+                        data-js-module="customElement/open-cart">
+              <div class="open-cart__btn cursor-pointer relative">
+                {% include "_partials/logos/cart" %}
+                <div class="w-19 open-cart__count hidden h-13 absolute top-[-6px] left-[10px] rounded-6 bg-orange-0 text-10 font-KumbhBold text-white flex items-center justify-center"></div>
+              </div>
+              <div class="fixed md:absolute w-[22.5rem] bg-white right-[50%] md:right-[unset] md:left-[-20px] top-45 z-10 min-h-[16rem] cartDrop hidden transform translate-x-[50%] md:translate-x-[-50%] rounded-10 shadow-[0_20px_50px_-20px_rgba(29,32,38,0.5)]">
+                <div class="p-24 border-b border-gray-1">
+                  <span class="text-style-l2 font-KumbhBold text-dark-0">Cart</span>
+                </div>
+                <div class="cartDrop__block">
+                  <div class="text-center pt-77 pb-85 cartDrop__empty">
+                    <span class="text-style-l2 text-gray-0">Your cart is empty.</span>
+                  </div>
+                  <div class="cartDrop__items pt-24 pb-32 px-24 hidden">
+                    <div class="cartDrop__items-wrap">
+                    </div>
+                    <div class="cartDrop__items-btn">
+                      <button class="btn text-white w-full">
+                        Checkout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </open-cart>
 
-      <div class="flex-1 flex items-center justify-end">
-        <div class="">Right Items</div>
+          </div>
+          <a href="#">
+            <div class="w-24 h-24 md:w-50 md:h-50 rounded-full overflow-hidden hover:md:border-2 border-orange-0">
+              <picture>
+                <img class="w-full h-full" src="/assets/images/men.png" alt="">
+              </picture>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>

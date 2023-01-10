@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": ".",
   "author": {
-    "name": "Paper Tiger",
-    "email": "info@papertiger.com",
-    "url": "https://papertiger.com"
+    "name": "Wideweb"
   },
   "private": true,
   "scripts": {

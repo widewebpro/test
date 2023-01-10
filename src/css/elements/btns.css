@@ -1,0 +1,4 @@
+.btn {
+  @apply py-19 rounded-10 flex items-center cursor-pointer text-16 leading-[1.25rem] font-KumbhBold justify-center transition-colors duration-300;
+  @apply bg-orange-0 hover:bg-orange-0/[0.5];
+}
