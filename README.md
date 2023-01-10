@@ -1,41 +1,38 @@
-# Project Starter
+# Test Craft CMS Project
+
 
 ## Requirements
-Node 8.12+ ([nvm](https://github.com/creationix/nvm) to manage your Node versions)
 
-## Setting up
-1. Clone/download to your machine
-2. Run `sh install`, follow prompts
-  
-```bash
-~/Sites/Starter-Kit-test develop
-❯ sh init.sh
+1. node version 16+
+2. PHP 8.1+
+3. MySQL 5.7.8+ with InnoDB or MariaDB 10.5+
+4. 512MB+ of memory allocated to PHP
+5. 200MB+ of free disk space
+6. Composer 2.0+
 
-Is this a new git project? (y/n) 
-> y
-Removing git reference. Make sure you git init with the project repo.
+## Install & Setup
+
+This project uses [node](http://nodejs.org), [npm](https://npmjs.com), [composer](https://getcomposer.org/download/). Go check them out if you don't have them locally installed.
+
+1. Create .env from .env.example
+
+2.
+```sh
+$ composer install
+$ npm install 
+$ npm run build
 ```
 
+#### DB:
 
-### Choosing CraftCMS
-```bash
-1) Craft
-2) Wordpress
-What type of project will this be? 
-> 1
+Create db and set your .env file
 
-------------------------
-Installing Craft CMS, this will take a minute.
-------------------------
-```
+#### Craft CMS :
 
-### Choosing Wordpress
-The only this that is required to build a wordpress project is the theme name.
-```bash
-1) Craft
-2) Wordpress
-What type of project will this be? 
-> 2
+1. root folder /web;
+2. index file - index.php
 
-Enter Project Name (e.g. Project Name):
-```
+
+## License
+
+[MIT](LICENSE) © WideWeb
