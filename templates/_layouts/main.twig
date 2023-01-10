@@ -6,12 +6,14 @@
     <a class="srd" href="#main">Skip to Page Content</a>
     {% include "_includes/globals/site-header" %}
 
-    <div class="site-container">
-      <main id="main" class="site-content min-h-screen" role="main">
-        {% block content %}{% endblock %}
-      </main>
-      {% include "_includes/globals/footer" %}
-    </div>
+    <lazy-load class="js-custom-el block" data-js-module="customElement/lazy-load">
+      <div class="site-container">
+        <main id="main" class="site-content min-h-screen" role="main">
+          {% block content %}{% endblock %}
+        </main>
+        {% include "_includes/globals/footer" %}
+      </div>
+    </lazy-load>
 
     {% include "_layouts/includes/body-end" %}
     {% block inlineJS %}{% endblock %}

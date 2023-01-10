@@ -1,0 +1,8 @@
+handle: test
+isFrontendEnabled: '1'
+name: TEst
+paymentType: authorize
+settings:
+  onlyAllowForZeroPriceOrders: '1'
+sortOrder: 99
+type: craft\commerce\gateways\Manual

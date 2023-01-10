@@ -1,19 +1,46 @@
-dateModified: 1673261522
+dateModified: 1673379034
 email:
   fromEmail: admin@gmail.com
   fromName: test
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  uploads:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
 meta:
   __names__:
     1df0915e-ef6f-4d98-8a38-1cae70be9a9d: Common # Common
+    3cc1bf1f-6aba-484d-900c-e75762f8dbf1: 'Sneakers Company' # Sneakers Company
     04d63c70-193e-4709-9265-8684e93b46b8: test # test
+    5ff9dedc-7e11-4582-8d39-e7419e2df815: New # New
+    9ec45d47-eaa5-4d38-9d88-c4ce0b2b49a4: Images # Images
+    24eecc94-7ccd-4684-a2b0-a3832946fe26: TEst # TEst
     40b8f94e-0462-4923-b274-f8dc54cc52b9: Homepage # Homepage
+    45a32e5e-f5e5-44f0-b86d-6177720937fa: 'Product Tablet' # Product Tablet
+    86d7e90c-733b-407b-9a96-cd35398a65f4: Description # Description
+    99f1f230-5b96-472a-9909-66db65012a95: Uploads # Uploads
+    145e89fa-40a5-4eba-ae5f-f53dfa4e7f8b: 'Public Schema' # Public Schema
     223fcb1f-bd7f-4c46-8ce6-d16a1e87a937: test # test
+    1097f717-ff92-451e-9a1d-5216b0ee6a9b: 'Small Product' # Small Product
+    7104e05c-deb7-4079-b76f-47ed1b04a284: 'Product Mobile' # Product Mobile
+    b966e4a4-8da8-4250-a480-0c1d2da62769: Dummy # Dummy
+    c64de762-1262-4e6c-bee9-8e20c564e1c0: 'Product Desktop' # Product Desktop
     ffb685f8-312e-4daf-b5c6-155813e70b51: Homepage # Homepage
+plugins:
+  commerce:
+    edition: pro
+    enabled: true
+    licenseKey: M96YII59BAUFY8IGJYG2UIDO
+    schemaVersion: 4.2.3
 system:
   edition: pro
   live: true
-  name: test
+  name: Test
+  retryDuration: null
   schemaVersion: 4.0.0.9
   timeZone: America/Los_Angeles
 users:

@@ -1,0 +1,19 @@
+columnSuffix: egzrnama
+contentColumnType: text
+fieldGroup: 1df0915e-ef6f-4d98-8a38-1cae70be9a9d # Common
+handle: description
+instructions: null
+name: Description
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 1
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,6 @@
+handle: dummy
+isFrontendEnabled: '1'
+name: Dummy
+paymentType: authorize
+sortOrder: 99
+type: craft\commerce\gateways\Dummy
